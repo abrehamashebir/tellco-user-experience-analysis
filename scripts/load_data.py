@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+import psycopg2
 import pandas as pd
 from dotenv import load_dotenv
 import os
@@ -19,6 +20,7 @@ def load_sql_data(query):
         engine = create_engine(connection)
 
           # Load data into a pandas DataFrame
+          
         df = pd.read_sql_query(query, engine)
 
         return df
