@@ -32,7 +32,7 @@ def treat_outlier_with_mean(data, column):
     lower_bound = Q1- 1.5*IQR 
     upper_bound = Q3 + 1.5*IQR
 
-    data = data[~((data[column] < lower_bound) | (data[column]) > upper_bound)]
+    data = data[(data[column] > lower_bound) | (data[column]) < upper_bound]
     # data.drop(data[(data[column] < lower_bound) | (data[column] > upper_bound)].index, inplace=True)
     
     return data
